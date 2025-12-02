@@ -61,6 +61,7 @@ python cli.py shortest-path
 
 ## 📁 Project Structure
 
+```bash
 project/
 │── async_training.py # Async training pipeline
 │── training.py # Synchronous training loop
@@ -73,7 +74,7 @@ project/
 │── cli.py # Typer CLI
 │── README.md
 │── requirements.txt
-
+```
 
 ---
 
