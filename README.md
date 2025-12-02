@@ -84,51 +84,51 @@ project/
 python -m venv venv
 source venv/bin/activate    # macOS/Linux
 venv\Scripts\activate       # Windows
-2. Install dependencies
-bash
-Copy code
+```
+
+### 2. Install dependencies
+```bash
 pip install -r requirements.txt
-3. Set API keys
-Create a .env file:
+```
 
-ini
-Copy code
+### 3. Set API keys
+Create a .env file with:
+```bash
 OPENAI_API_KEY=your_api_key
-4. Run Neo4j
-Make sure Neo4j is running locally or remotely.
+```
 
-🧵 Synchronous Training
+### 4. Run Neo4j
+Make sure your Neo4j instance is running locally or remotely.
+
+---
+
+### Synchronous Training
 Run:
 
-bash
-Copy code
+```bash
 python cli.py train 2
+```
+
 This performs:
+- 2 training cycles
+- 10 generated questions per cycle
+- unit extraction
+- formula generation
+- graph storage
 
-2 training cycles
-
-10 generated questions per cycle
-
-unit extraction
-
-formula generation
-
-graph storage
-
-⚡ Asynchronous Training
+### Asynchronous Training
 The async version is significantly faster due to:
 
-asyncio.gather for concurrent LLM calls
-
-asyncio.to_thread() for CPU-bound DSPy predictions
-
-async Neo4j writes
+- asyncio.gather for concurrent LLM calls
+- asyncio.to_thread() for CPU-bound DSPy predictions
+- async Neo4j writes
 
 Run:
 
-bash
-Copy code
+```bash
 python cli.py async-train 4
+```
+
 🧩 How the Async Pipeline Works
 1. Async Question Generation
 python
