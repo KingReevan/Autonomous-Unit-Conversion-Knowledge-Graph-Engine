@@ -3,7 +3,7 @@
 
 ---
 
-## 🚀 Overview
+## Overview
 
 This project builds an **autonomous unit-conversion engine** that continuously learns new unit-to-unit relationships using:
 
@@ -26,7 +26,7 @@ This produces a scalable **knowledge graph** of unit conversions.
 
 ---
 
-## 🧠 Core Features
+## Core Features
 
 ### ✅ Automated Training Pipeline
 - End-to-end question generation → unit extraction → formula derivation → graph storage  
@@ -129,64 +129,66 @@ Run:
 python cli.py async-train 4
 ```
 
-🧩 How the Async Pipeline Works
-1. Async Question Generation
-python
-Copy code
+## How the Async Pipeline Works
+### 1. Async Question Generation
+```python
 await genq_async(...)
-2. Parallel Unit Extraction
-python
-Copy code
+```
+
+### 2. Parallel Unit Extraction
+```python
 await asyncio.gather(*unit_tasks)
-3. Formula Generation in Threads
-python
-Copy code
+```
+
+### 3. Formula Generation in Threads
+```python
 asyncio.to_thread(ask_formula, from_unit, to_unit)
-4. Async Neo4j Storage
-python
-Copy code
+```
+
+### 4. Async Neo4j Storage
+```python
 await save_all_conversions_async(formulas)
-🔍 Querying the Graph
+```
+
+### Querying the Graph
 Interactive mode:
 
-bash
-Copy code
+```bash
 python cli.py ask
+```
+
 Example:
 
-yaml
-Copy code
+```yaml
 Ask anything: convert liters to milliliters
 Result: liters → milliliters: milliliters = liters * 1000
-🏗️ Graph Schema
+```
+
+### Graph Schema
 Nodes
-css
-Copy code
+```css
 (:Unit { name: "<full unit name>" })
+```
+
 Relationship
-css
-Copy code
+```css
 (a:Unit)-[:CONVERTS_TO { formula: "<equation>" }]->(b:Unit)
+```
+
 Inverse Relations
 Automatically computed via formula inversion and stored.
 
-📈 Performance
-Async training is 4–10× faster
+## Performance
+- Async training is 4–10× faster
+- DSPy unit extraction + formula generation supports multithreading
+- Neo4j storage runs concurrently
+- Execution time measured with @timeit
 
-DSPy unit extraction + formula generation supports multithreading
+# Future Improvements
+- Caching identical conversions
+- Normalizing singular/plural unit representations
+- Adding a web UI to explore the graph
+- Automatic periodic training cycles
 
-Neo4j storage runs concurrently
-
-Execution time measured with @timeit
-
-📘 Future Improvements
-Caching identical conversions
-
-Normalizing singular/plural unit representations
-
-Adding a web UI to explore the graph
-
-Automatic periodic training cycles
-
-🔑 License
+# License
 MIT License.
