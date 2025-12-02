@@ -1,0 +1,29 @@
+site_name: Unit Conversion Project
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - training:
+      - Training Loop: training/training_loop.md
+      - Unit Extraction: training/extract_units.md
+      - Formula Generation: training/formula_generation.md
+      - Graph Storage: training/storage.md
+  - API Reference:
+      - ExtractUnits: api/extract_units.md
+      - AskFormula: api/ask_formula.md
+      - GenerateQuestions: api/generate_questions.md
+      - Storage Functions: api/storage.md
