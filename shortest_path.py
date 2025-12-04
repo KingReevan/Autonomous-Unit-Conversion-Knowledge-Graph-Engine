@@ -7,7 +7,7 @@ from sympy import symbols
 
 driver = GraphDatabase.driver(
     "bolt://localhost:7687",
-    auth=("neo4j", "reevantheking")
+    auth=("neo4j", "reevantheking19$$")
 )
 
 # -----------------------------

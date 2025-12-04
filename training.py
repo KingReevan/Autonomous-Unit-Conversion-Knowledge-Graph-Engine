@@ -16,7 +16,7 @@ def training_loop(cycles: int) -> None:
 
         # STEP 1: Ask the GPT to give me questions of unit conversions -> "how do I convert centimeter to meter?"
         generated_questions = genq(
-            count=30,
+            count=100,
             prompt="Give me strings of unit conversion questions. The units must be simple and commonly used."
         )
         print(generated_questions.questions)

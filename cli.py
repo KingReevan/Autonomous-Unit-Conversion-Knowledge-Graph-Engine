@@ -1,4 +1,5 @@
 import typer
+import asyncio
 from training import training_loop
 from user_query import agent
 from async_training import async_training_loop
@@ -18,7 +19,6 @@ def async_train(cycles: int):
     """
     Run the asynchronous version of the training workflow for a given number of cycles.
     """
-    import asyncio
     asyncio.run(async_training_loop(cycles))
 
 @app.command()
